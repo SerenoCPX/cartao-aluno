@@ -1,0 +1,7 @@
+{
+  "name": "cartao-aluno",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
