@@ -1,27 +1,46 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>Sobre</ion-title>
+    <ion-title>Alteração de Cores</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content [style.--background]="backgroundColor" class="ion-padding">
 
-  <h2>Sobre a disciplina</h2>
+  <h2>Controle de Cores</h2>
 
-  <p>
-    A disciplina de desenvolvimento front-end tem como objetivo ensinar os conceitos
-    básicos de criação de interfaces para aplicações web e mobile. Durante as aulas,
-    são abordadas tecnologias como HTML, CSS e frameworks modernos, como o Ionic,
-    que permitem o desenvolvimento de aplicativos híbridos.
-  </p>
+  <ion-item>
+    <ion-label>R</ion-label>
+    <ion-range min="0" max="255" [(ngModel)]="r"></ion-range>
+  </ion-item>
 
-  <p>
-    Este projeto foi desenvolvido como parte das atividades da disciplina, com o objetivo
-    de praticar a criação de telas, navegação entre páginas e organização de código.
-  </p>
+  <ion-item>
+    <ion-label>G</ion-label>
+    <ion-range min="0" max="255" [(ngModel)]="g"></ion-range>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>B</ion-label>
+    <ion-range min="0" max="255" [(ngModel)]="b"></ion-range>
+  </ion-item>
+
+  <ion-button
+    expand="block"
+    (click)="mudarCorBotao()"
+    [style.--background]="buttonColor"
+    style="color: rgb(0, 0, 0);">
+    Mudar cor do botão
+  </ion-button>
+
+  <ion-button expand="block" (click)="mudarFundo()">
+    Mudar fundo
+  </ion-button>
+
+  <ion-button expand="block"  (click)="resetarCores()">
+    Resetar cores
+  </ion-button>
 
   <ion-button expand="block" routerLink="/home">
-    Voltar para o início
+    Voltar
   </ion-button>
 
 </ion-content>

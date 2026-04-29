@@ -1,13 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { Component } from '@angular/core';
 import {
   IonContent,
   IonHeader,
   IonTitle,
   IonToolbar,
-  IonButton
+  IonRange,
+  IonButton,
+  IonItem,
+  IonLabel
 } from '@ionic/angular/standalone';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -20,17 +23,39 @@ import { RouterLink } from '@angular/router';
     IonHeader,
     IonTitle,
     IonToolbar,
+    IonRange,
     IonButton,
-    RouterLink,
+    IonItem,
+    IonLabel,
+    FormsModule,
     CommonModule,
-    FormsModule
+    RouterLink
   ]
 })
-export class SobrePage implements OnInit {
+export class SobrePage {
 
-  constructor() { }
+  r = 0;
+  g = 0;
+  b = 0;
 
-  ngOnInit() {
+  buttonColor = 'rgb(56, 150, 212)';
+  backgroundColor = 'white'; // 🔥 IMPORTANTE
+
+  mudarCorBotao() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+
+    this.buttonColor = `rgb(${r}, ${g}, ${b})`;
+  }
+
+  mudarFundo() {
+    this.backgroundColor = `rgb(${this.r}, ${this.g}, ${this.b})`;
+  }
+
+  resetarCores() {
+    this.backgroundColor = 'white';
+    this.buttonColor = '';
   }
 
 }
